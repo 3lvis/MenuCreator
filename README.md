@@ -1,6 +1,6 @@
 # MenuCreator
 
-PROJECT_DESCRIPTION
+An app to create simple restaurant menus
 
 ## Running the project
 
