@@ -1,4 +1,4 @@
-# PROJECT_NAME
+# MenuCreator
 
 PROJECT_DESCRIPTION
 
