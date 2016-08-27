@@ -48,13 +48,20 @@ class ListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 50
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier("Header")
-
+        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier("Header") as? SectionHeaderView
+        view?.groupType = self.groupTypeForSection(section)
+        view?.delegate = self
 
         return view
+    }
+}
+
+extension ListController: SectionHeaderViewDelegate {
+    func sectionHeaderView(sectionHeaderView: SectionHeaderView, didTappedAddButtonForGroupType groupType: BreakfastItem.GroupType) {
+        print("add: \(groupType.rawValue)")
     }
 }
