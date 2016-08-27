@@ -8,6 +8,21 @@ struct BreakfastItem {
         case jugos = "JUGOS"
     }
 
+    static func groupTypeForSection(section: Int) -> BreakfastItem.GroupType {
+        switch section {
+        case 0:
+            return BreakfastItem.GroupType.platosListos
+        case 1:
+            return BreakfastItem.GroupType.desayuno
+        case 2:
+            return BreakfastItem.GroupType.sandwichs
+        case 3:
+            return BreakfastItem.GroupType.jugos
+        default:
+            fatalError()
+        }
+    }
+
     let title: String
     let price: Double
     let isSeparator: Bool

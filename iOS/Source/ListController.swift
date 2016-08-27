@@ -19,23 +19,9 @@ class ListController: UITableViewController {
     }
 
     func objectsForSection(section: Int) -> [BreakfastItem] {
-        let groupType = self.groupTypeForSection(section)
-        return data[groupType.rawValue] ?? [BreakfastItem]()
-    }
+        let groupType = BreakfastItem.groupTypeForSection(section)
 
-    func groupTypeForSection(section: Int) -> BreakfastItem.GroupType {
-        switch section {
-        case 0:
-            return BreakfastItem.GroupType.platosListos
-        case 1:
-            return BreakfastItem.GroupType.desayuno
-        case 2:
-            return BreakfastItem.GroupType.sandwichs
-        case 3:
-            return BreakfastItem.GroupType.jugos
-        default:
-            fatalError()
-        }
+        return data[groupType.rawValue] ?? [BreakfastItem]()
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -53,7 +39,7 @@ class ListController: UITableViewController {
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier("Header") as? SectionHeaderView
-        view?.groupType = self.groupTypeForSection(section)
+        view?.groupType = BreakfastItem.groupTypeForSection(section)
         view?.delegate = self
 
         return view
