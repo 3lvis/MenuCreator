@@ -17,6 +17,7 @@
 		1483128E1B92C11500266943 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1483128D1B92C11500266943 /* Tests.swift */; };
 		148DC3911D7232530061F043 /* jugos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 148DC38F1D7232530061F043 /* jugos.plist */; };
 		148DC3921D7232530061F043 /* sandwichs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 148DC3901D7232530061F043 /* sandwichs.plist */; };
+		148DC3941D723F1F0061F043 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DC3931D723F1F0061F043 /* SectionHeaderView.swift */; };
 		14F0217F1D715F8000D5D9B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F0217E1D715F8000D5D9B7 /* Item.swift */; };
 		14F021811D71602000D5D9B7 /* NewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F021801D71602000D5D9B7 /* NewItemController.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		1483128D1B92C11500266943 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		148DC38F1D7232530061F043 /* jugos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jugos.plist; sourceTree = "<group>"; };
 		148DC3901D7232530061F043 /* sandwichs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sandwichs.plist; sourceTree = "<group>"; };
+		148DC3931D723F1F0061F043 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		14F0217E1D715F8000D5D9B7 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		14F021801D71602000D5D9B7 /* NewItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 			children = (
 				146E27A41BCD51F200959BBA /* AppDelegate.swift */,
 				146E27A51BCD51F200959BBA /* ListController.swift */,
+				148DC3931D723F1F0061F043 /* SectionHeaderView.swift */,
 				14F021801D71602000D5D9B7 /* NewItemController.swift */,
 			);
 			path = Source;
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14F0217F1D715F8000D5D9B7 /* Item.swift in Sources */,
+				148DC3941D723F1F0061F043 /* SectionHeaderView.swift in Sources */,
 				146E27AC1BCD51F200959BBA /* AppDelegate.swift in Sources */,
 				14F021811D71602000D5D9B7 /* NewItemController.swift in Sources */,
 				14425E551C97078A00F0FAD1 /* Theme.swift in Sources */,

@@ -6,6 +6,7 @@ class ListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.registerClass(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
@@ -18,17 +19,22 @@ class ListController: UITableViewController {
     }
 
     func objectsForSection(section: Int) -> [BreakfastItem] {
+        let groupType = self.groupTypeForSection(section)
+        return data[groupType.rawValue] ?? [BreakfastItem]()
+    }
+
+    func groupTypeForSection(section: Int) -> BreakfastItem.GroupType {
         switch section {
         case 0:
-            return data[BreakfastItem.GroupType.platosListos.rawValue] ?? [BreakfastItem]()
+            return BreakfastItem.GroupType.platosListos
         case 1:
-            return data[BreakfastItem.GroupType.desayuno.rawValue] ?? [BreakfastItem]()
+            return BreakfastItem.GroupType.desayuno
         case 2:
-            return data[BreakfastItem.GroupType.sandwichs.rawValue] ?? [BreakfastItem]()
+            return BreakfastItem.GroupType.sandwichs
         case 3:
-            return data[BreakfastItem.GroupType.jugos.rawValue] ?? [BreakfastItem]()
+            return BreakfastItem.GroupType.jugos
         default:
-            return [BreakfastItem]()
+            fatalError()
         }
     }
 
@@ -39,5 +45,16 @@ class ListController: UITableViewController {
         cell.textLabel?.text = item.title
 
         return cell
+    }
+
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier("Header")
+
+
+        return view
     }
 }
