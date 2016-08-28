@@ -7,6 +7,9 @@ protocol ItemControllerDelegate: class {
 }
 
 class ItemController: UITableViewController {
+    static let titleCellHeight = CGFloat(150)
+    static let cellHeight = CGFloat(60)
+
     enum Section: Int {
         case title, price, others, delete
 
@@ -71,17 +74,17 @@ class ItemController: UITableViewController {
         switch sectionType {
         case .title:
             let cell = tableView.dequeueReusableCellWithIdentifier(TextViewCell.reuseIdentifier, forIndexPath: indexPath) as! TextViewCell
-            cell.textLabel?.text = self.item.title
+            cell.item = self.item
 
             return cell
         case .price:
             let cell = tableView.dequeueReusableCellWithIdentifier(TextFieldCell.reuseIdentifier, forIndexPath: indexPath) as! TextFieldCell
-            cell.textLabel?.text = String(self.item.price) ?? ""
+            cell.item = self.item
 
             return cell
         case .others:
             let cell = tableView.dequeueReusableCellWithIdentifier(SwitchCell.reuseIdentifier, forIndexPath: indexPath) as! SwitchCell
-
+            cell.item = self.item
 
             return cell
         case .delete:
@@ -95,6 +98,15 @@ class ItemController: UITableViewController {
         let sectionType = ItemController.Section(rawValue: section)!
 
         return sectionType.toString()
+    }
+
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let sectionType = ItemController.Section(rawValue: indexPath.section)!
+        if sectionType == .title {
+            return ItemController.titleCellHeight
+        } else {
+            return ItemController.cellHeight
+        }
     }
 
     func save() {
