@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct BreakfastItem {
     enum GroupType: String {
@@ -42,7 +43,7 @@ struct BreakfastItem {
         }
         items[BreakfastItem.GroupType.platosListos.rawValue] = platosListos
 
-        let item = BreakfastItem(title: "- TÉ ó MATE ó CHICHA/n - BROCOLY SALTADO/n -PAN", price: 7, isSeparator: false)
+        let item = BreakfastItem(title: "- TÉ ó MATE ó CHICHA\n- BROCOLY SALTADO\n- PAN", price: 7, isSeparator: false)
         items[BreakfastItem.GroupType.desayuno.rawValue] = [item]
 
         let sandwichsPath = NSBundle.mainBundle().pathForResource("sandwichs", ofType: "plist")!
@@ -70,5 +71,12 @@ struct BreakfastItem {
         items[BreakfastItem.GroupType.jugos.rawValue] = jugos
 
         return items
+    }
+
+    func height(forWidth width: CGFloat) -> CGFloat {
+        let attributes = [NSFontAttributeName : ItemCell.titleLabelFont]
+        let boundingRect = (self.title as NSString).boundingRectWithSize(CGSize(width: width, height: CGFloat.max), options: .UsesLineFragmentOrigin, attributes: attributes, context: nil)
+
+        return boundingRect.height
     }
 }

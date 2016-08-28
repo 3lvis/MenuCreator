@@ -1,6 +1,10 @@
 import UIKit
 
 class ItemCell: UITableViewCell {
+    static let baseHeight = CGFloat(60.0)
+    static let titleLabelFont = UIFont.systemFontOfSize(19)
+    static let subtitleLabelFont = UIFont.systemFontOfSize(19)
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -15,6 +19,8 @@ class ItemCell: UITableViewCell {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
+        label.font = ItemCell.titleLabelFont
 
         return label
     }()
@@ -22,6 +28,7 @@ class ItemCell: UITableViewCell {
     lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .Right
+        label.font = ItemCell.subtitleLabelFont
 
         return label
     }()
@@ -50,7 +57,6 @@ class ItemCell: UITableViewCell {
         let containerWidth = self.frame.width
         let containerHeight =  self.frame.height
         self.contentView.frame = CGRect(x: 0, y: 0, width: containerWidth, height: containerHeight)
-
 
         let horizontalMargin = CGFloat(20)
         let boundsWidth = containerWidth - (horizontalMargin * 2)

@@ -11,6 +11,7 @@ class ItemsController: UITableViewController {
         self.tableView.register(ItemCell)
         self.tableView.registerHeaderFooter(SectionHeaderView)
         self.tableView.cellLayoutMarginsFollowReadableWidth = false
+        self.tableView.rowHeight = ItemCell.baseHeight
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -61,6 +62,16 @@ class ItemsController: UITableViewController {
         let navigationController = UINavigationController(rootViewController: controller)
         navigationController.modalPresentationStyle = .FormSheet
         self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let items = self.objectsForSection(indexPath.section)
+        let item = items[indexPath.row]
+        let verticalMargin = CGFloat(10)
+        var height = item.height(forWidth: self.tableView.frame.width)
+        height = height < ItemCell.baseHeight ? ItemCell.baseHeight : height + (verticalMargin * 2)
+
+        return height
     }
 }
 
