@@ -6,6 +6,7 @@ class ItemsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = NSLocalizedString("Breakfast", comment: "")
         self.tableView.registerClass(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
         self.tableView.register(ItemCell)
         self.tableView.registerHeaderFooter(SectionHeaderView)
@@ -53,12 +54,32 @@ class ItemsController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let items = self.objectsForSection(indexPath.section)
+        let item = items[indexPath.row]
+        let controller = ItemController(item: item)
+        controller.controllerDelegate = self
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.modalPresentationStyle = .FormSheet
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
 
 extension ItemsController: SectionHeaderViewDelegate {
     func sectionHeaderView(sectionHeaderView: SectionHeaderView, didTappedAddButtonForGroupType groupType: BreakfastItem.GroupType) {
         print("add: \(groupType.rawValue)")
+    }
+}
+
+extension ItemsController: ItemControllerDelegate {
+    func itemController(itemController: ItemController, didRequestToSaveItem: BreakfastItem) {
+        self.dismissViewControllerAnimated(true) {
+            self.tableView.deselectCurrentlySelectedRow()
+        }
+    }
+
+    func itemControllerDidCancel(itemController: ItemController) {
+        self.dismissViewControllerAnimated(true) {
+            self.tableView.deselectCurrentlySelectedRow()
+        }
     }
 }
