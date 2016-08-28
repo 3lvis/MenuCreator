@@ -69,7 +69,7 @@ class ItemsController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-
+            self.deleteItem(indexPath)
         }
     }
 
@@ -79,6 +79,20 @@ class ItemsController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let item = BreakfastItem.itemAtIndexPath(self.data, indexPath: sourceIndexPath)
+        let groupType = BreakfastItem.groupTypeForSection(sourceIndexPath.section)
+        var objects = BreakfastItem.objectsForSection(self.data, section: sourceIndexPath.section)
+        objects.removeAtIndex(sourceIndexPath.row)
+        objects.insert(item, atIndex: destinationIndexPath.row)
+        self.data[groupType.rawValue] = objects
+    }
+
+    func deleteItem(indexPath: NSIndexPath) {
+        let groupType = BreakfastItem.groupTypeForSection(indexPath.section)
+        var objects = BreakfastItem.objectsForSection(self.data, section: indexPath.section)
+        objects.removeAtIndex(indexPath.row)
+        self.data[groupType.rawValue] = objects
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 }
 
@@ -121,11 +135,7 @@ extension ItemsController: ItemControllerDelegate {
     func itemController(itemController: ItemController, didRequestToDeleteItem item: BreakfastItem) {
         self.dismissViewControllerAnimated(true) {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-                let groupType = BreakfastItem.groupTypeForSection(selectedIndexPath.section)
-                var objects = BreakfastItem.objectsForSection(self.data, section: selectedIndexPath.section)
-                objects.removeAtIndex(selectedIndexPath.row)
-                self.data[groupType.rawValue] = objects
-                self.tableView.deleteRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .Automatic)
+                self.deleteItem(selectedIndexPath)
             }
         }
     }
