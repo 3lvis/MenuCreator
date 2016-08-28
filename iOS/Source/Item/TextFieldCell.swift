@@ -35,6 +35,14 @@ class TextFieldCell: UITableViewCell {
         self.delegate?.textFieldCell(self, didUpdateText: textField.text ?? "")
     }
 
+    override func setHighlighted(highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+
+        if highlighted {
+            self.textField.becomeFirstResponder()
+        }
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
 
