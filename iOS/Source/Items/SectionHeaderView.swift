@@ -26,6 +26,7 @@ class SectionHeaderView: UITableViewHeaderFooterView {
     var groupType = BreakfastItem.GroupType.platosListos {
         didSet {
             self.titleLabel.text = groupType.rawValue
+            self.addButton.hidden = groupType == .desayuno
         }
     }
 

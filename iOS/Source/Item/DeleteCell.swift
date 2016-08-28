@@ -4,6 +4,7 @@ class DeleteCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        self.selectionStyle = .None
         self.textLabel?.textColor = UIColor.redColor()
         self.textLabel?.font = UIFont.boldSystemFontOfSize(19)
         self.textLabel?.text = NSLocalizedString("Delete", comment: "")

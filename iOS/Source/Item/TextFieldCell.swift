@@ -1,9 +1,16 @@
 import UIKit
 
+protocol TextFieldCellDelegate: class {
+    func textFieldCell(textFieldCell: TextFieldCell, didUpdateText text: String)
+}
+
 class TextFieldCell: UITableViewCell {
+    weak var delegate: TextFieldCellDelegate?
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        self.selectionStyle = .None
         self.contentView.addSubview(self.textField)
     }
 
@@ -13,6 +20,7 @@ class TextFieldCell: UITableViewCell {
     lazy var textField: UITextField = {
         let view = UITextField()
         view.font = UIFont.systemFontOfSize(19)
+        view.addTarget(self, action: #selector(changedText), forControlEvents: .EditingChanged)
 
         return view
     }()
@@ -21,6 +29,10 @@ class TextFieldCell: UITableViewCell {
         didSet {
             self.textField.text = String(self.item?.price ?? 0) ?? ""
         }
+    }
+
+    func changedText(textField: UITextField) {
+        self.delegate?.textFieldCell(self, didUpdateText: textField.text ?? "")
     }
 
     override func layoutSubviews() {

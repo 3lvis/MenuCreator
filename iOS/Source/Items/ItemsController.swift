@@ -76,19 +76,27 @@ extension ItemsController: SectionHeaderViewDelegate {
 }
 
 extension ItemsController: ItemControllerDelegate {
-    func itemController(itemController: ItemController, didRequestToUpdateItem: BreakfastItem) {
+    func itemController(itemController: ItemController, didRequestToUpdateItem item: BreakfastItem) {
+        self.dismissViewControllerAnimated(true) {
+            if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+                let groupType = BreakfastItem.groupTypeForSection(selectedIndexPath.section)
+                var objects = BreakfastItem.objectsForSection(self.data, section: selectedIndexPath.section)
+                objects[selectedIndexPath.row] = item
+                self.data[groupType.rawValue] = objects
+                self.tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .Fade)
+            }
+
+            self.tableView.deselectCurrentlySelectedRow()
+        }
+    }
+
+    func itemController(itemController: ItemController, didRequestToCreateItem item: BreakfastItem) {
         self.dismissViewControllerAnimated(true) {
             self.tableView.deselectCurrentlySelectedRow()
         }
     }
 
-    func itemController(itemController: ItemController, didRequestToCreateItem: BreakfastItem) {
-        self.dismissViewControllerAnimated(true) {
-            self.tableView.deselectCurrentlySelectedRow()
-        }
-    }
-
-    func itemController(itemController: ItemController, didRequestToDeleteItem: BreakfastItem) {
+    func itemController(itemController: ItemController, didRequestToDeleteItem item: BreakfastItem) {
         self.dismissViewControllerAnimated(true) {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                 let groupType = BreakfastItem.groupTypeForSection(selectedIndexPath.section)

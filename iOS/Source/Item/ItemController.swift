@@ -1,9 +1,9 @@
 import UIKit
 
 protocol ItemControllerDelegate: class {
-    func itemController(itemController: ItemController, didRequestToUpdateItem: BreakfastItem)
-    func itemController(itemController: ItemController, didRequestToCreateItem: BreakfastItem)
-    func itemController(itemController: ItemController, didRequestToDeleteItem: BreakfastItem)
+    func itemController(itemController: ItemController, didRequestToUpdateItem item: BreakfastItem)
+    func itemController(itemController: ItemController, didRequestToCreateItem item: BreakfastItem)
+    func itemController(itemController: ItemController, didRequestToDeleteItem item: BreakfastItem)
     func itemControllerDidCancel(itemController: ItemController)
 }
 
@@ -76,17 +76,19 @@ class ItemController: UITableViewController {
         case .title:
             let cell = tableView.dequeueReusableCellWithIdentifier(TextViewCell.reuseIdentifier, forIndexPath: indexPath) as! TextViewCell
             cell.item = self.item
+            cell.delegate = self
 
             return cell
         case .price:
             let cell = tableView.dequeueReusableCellWithIdentifier(TextFieldCell.reuseIdentifier, forIndexPath: indexPath) as! TextFieldCell
             cell.item = self.item
+            cell.delegate = self
 
             return cell
         case .others:
             let cell = tableView.dequeueReusableCellWithIdentifier(SwitchCell.reuseIdentifier, forIndexPath: indexPath) as! SwitchCell
-            cell.delegate = self
             cell.item = self.item
+            cell.delegate = self
 
             return cell
         case .delete:
@@ -136,5 +138,21 @@ class ItemController: UITableViewController {
 extension ItemController: SwitchCellDelegate {
     func switchCell(switchCell: SwitchCell, didUpdateSwitch isSeparator: Bool) {
         self.item.isSeparator = isSeparator
+    }
+}
+
+extension ItemController: TextViewCellDelegate {
+    func textViewCell(textViewCell: TextViewCell, didUpdateText text: String) {
+        self.item.title = text
+    }
+}
+
+extension ItemController: TextFieldCellDelegate {
+    func textFieldCell(textFieldCell: TextFieldCell, didUpdateText text: String) {
+        if let price = Double(text) {
+            self.item.price = price
+        } else {
+            self.item.price = 0
+        }
     }
 }

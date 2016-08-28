@@ -10,6 +10,7 @@ class SwitchCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        self.selectionStyle = .None
         self.textLabel?.text = NSLocalizedString("Is separator", comment: "")
         self.textLabel?.font = UIFont.systemFontOfSize(19)
 
