@@ -7,12 +7,15 @@ class ItemsController: UITableViewController {
         super.viewDidLoad()
 
         self.title = NSLocalizedString("Breakfast", comment: "")
+
         self.tableView.registerClass(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
         self.tableView.register(ItemCell)
         self.tableView.registerHeaderFooter(SectionHeaderView)
         self.tableView.cellLayoutMarginsFollowReadableWidth = false
         self.tableView.sectionHeaderHeight = SectionHeaderView.height
+
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Preview", comment: ""), style: .Plain, target: self, action: #selector(preview))
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -93,6 +96,10 @@ class ItemsController: UITableViewController {
         objects.removeAtIndex(indexPath.row)
         self.data[groupType.rawValue] = objects
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    }
+
+    func preview() {
+
     }
 }
 
