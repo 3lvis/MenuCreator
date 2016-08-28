@@ -14,6 +14,7 @@
 		146C611F1D72C99300553B39 /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C611B1D72C99300553B39 /* ItemsController.swift */; };
 		146C61201D72C99300553B39 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C611C1D72C99300553B39 /* SectionHeaderView.swift */; };
 		146C61221D72CCC400553B39 /* UITableView+Sweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C61211D72CCC400553B39 /* UITableView+Sweet.swift */; };
+		146C61241D72D1E000553B39 /* Swift+Sweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C61231D72D1E000553B39 /* Swift+Sweet.swift */; };
 		146E27AA1BCD51F200959BBA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 146E27A11BCD51F200959BBA /* Images.xcassets */; };
 		146E27AC1BCD51F200959BBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146E27A41BCD51F200959BBA /* AppDelegate.swift */; };
 		1483128E1B92C11500266943 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1483128D1B92C11500266943 /* Tests.swift */; };
@@ -32,6 +33,7 @@
 		146C611B1D72C99300553B39 /* ItemsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsController.swift; sourceTree = "<group>"; };
 		146C611C1D72C99300553B39 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		146C61211D72CCC400553B39 /* UITableView+Sweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Sweet.swift"; sourceTree = "<group>"; };
+		146C61231D72D1E000553B39 /* Swift+Sweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Swift+Sweet.swift"; sourceTree = "<group>"; };
 		146E27891BCD51C800959BBA /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E27A11BCD51F200959BBA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		146E27A21BCD51F200959BBA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				440668D01D72A99300E582E1 /* IdentifiableCell.swift */,
 				146C61211D72CCC400553B39 /* UITableView+Sweet.swift */,
+				146C61231D72D1E000553B39 /* Swift+Sweet.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				146C611F1D72C99300553B39 /* ItemsController.swift in Sources */,
 				146C611D1D72C99300553B39 /* ItemController.swift in Sources */,
 				146C61201D72C99300553B39 /* SectionHeaderView.swift in Sources */,
+				146C61241D72D1E000553B39 /* Swift+Sweet.swift in Sources */,
 				440668D11D72A99300E582E1 /* IdentifiableCell.swift in Sources */,
 				146C61221D72CCC400553B39 /* UITableView+Sweet.swift in Sources */,
 				146C611E1D72C99300553B39 /* ItemCell.swift in Sources */,
