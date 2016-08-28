@@ -5,6 +5,8 @@ protocol SectionHeaderViewDelegate: class {
 }
 
 class SectionHeaderView: UITableViewHeaderFooterView {
+    static let height = CGFloat(50)
+
     weak var delegate: SectionHeaderViewDelegate?
 
     lazy var titleLabel: UILabel = {

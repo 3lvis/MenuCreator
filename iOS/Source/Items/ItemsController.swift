@@ -11,6 +11,8 @@ class ItemsController: UITableViewController {
         self.tableView.register(ItemCell)
         self.tableView.registerHeaderFooter(SectionHeaderView)
         self.tableView.cellLayoutMarginsFollowReadableWidth = false
+        self.tableView.sectionHeaderHeight = SectionHeaderView.height
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -26,10 +28,6 @@ class ItemsController: UITableViewController {
         cell.item = BreakfastItem.itemAtIndexPath(self.data, indexPath: indexPath)
 
         return cell
-    }
-
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
     }
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -62,6 +60,25 @@ class ItemsController: UITableViewController {
         height = height < ItemCell.baseHeight ? ItemCell.baseHeight : height + (verticalMargin * 2)
 
         return height
+    }
+
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        let groupType = BreakfastItem.groupTypeForSection(indexPath.section)
+        return groupType != .desayuno
+    }
+
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+
+        }
+    }
+
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        let groupType = BreakfastItem.groupTypeForSection(indexPath.section)
+        return groupType != .desayuno
+    }
+
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
     }
 }
 
