@@ -99,7 +99,9 @@ class ItemsController: UITableViewController {
     }
 
     func preview() {
-
+        let controller = PreviewController(data: self.data)
+        let navigationController = UINavigationController(rootViewController: controller)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
 
@@ -151,5 +153,15 @@ extension ItemsController: ItemControllerDelegate {
         self.dismissViewControllerAnimated(true) {
             self.tableView.deselectCurrentlySelectedRow()
         }
+    }
+}
+
+extension ItemsController: PreviewControllerDelegate {
+    func previewControllerDidRequestForPrint(previewController: PreviewController) {
+
+    }
+
+    func previewControllerCancel(previewController: PreviewController) {
+
     }
 }

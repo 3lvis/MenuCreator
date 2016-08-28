@@ -20,6 +20,7 @@
 		1483128E1B92C11500266943 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1483128D1B92C11500266943 /* Tests.swift */; };
 		148DC3911D7232530061F043 /* jugos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 148DC38F1D7232530061F043 /* jugos.plist */; };
 		148DC3921D7232530061F043 /* sandwichs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 148DC3901D7232530061F043 /* sandwichs.plist */; };
+		14A76B2E1D73879300F13F90 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A76B2D1D73879300F13F90 /* PreviewController.swift */; };
 		14F0217F1D715F8000D5D9B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F0217E1D715F8000D5D9B7 /* Item.swift */; };
 		440668D11D72A99300E582E1 /* IdentifiableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440668D01D72A99300E582E1 /* IdentifiableCell.swift */; };
 		4428511F1D72FC2B0098AFE1 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4428511E1D72FC2B0098AFE1 /* TextViewCell.swift */; };
@@ -47,6 +48,7 @@
 		1483128D1B92C11500266943 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		148DC38F1D7232530061F043 /* jugos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jugos.plist; sourceTree = "<group>"; };
 		148DC3901D7232530061F043 /* sandwichs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sandwichs.plist; sourceTree = "<group>"; };
+		14A76B2D1D73879300F13F90 /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		14F0217E1D715F8000D5D9B7 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		440668D01D72A99300E582E1 /* IdentifiableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableCell.swift; sourceTree = "<group>"; };
 		4428511E1D72FC2B0098AFE1 /* TextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				146E27A41BCD51F200959BBA /* AppDelegate.swift */,
+				14A76B2C1D73878C00F13F90 /* Preview */,
 				146C61191D72C99300553B39 /* Items */,
 				146C61171D72C99300553B39 /* Item */,
 			);
@@ -170,6 +173,14 @@
 				1483128C1B92C11500266943 /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		14A76B2C1D73878C00F13F90 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				14A76B2D1D73879300F13F90 /* PreviewController.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		14F0217D1D715F7700D5D9B7 /* Models */ = {
@@ -324,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A76B2E1D73879300F13F90 /* PreviewController.swift in Sources */,
 				14F0217F1D715F8000D5D9B7 /* Item.swift in Sources */,
 				146E27AC1BCD51F200959BBA /* AppDelegate.swift in Sources */,
 				442851211D72FC310098AFE1 /* TextFieldCell.swift in Sources */,
