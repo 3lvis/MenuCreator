@@ -105,9 +105,9 @@
 			children = (
 				146E27A41BCD51F200959BBA /* AppDelegate.swift */,
 				146E27A51BCD51F200959BBA /* ListController.swift */,
+				440668CB1D72A8FC00E582E1 /* ItemCell.swift */,
 				148DC3931D723F1F0061F043 /* SectionHeaderView.swift */,
 				14F021801D71602000D5D9B7 /* NewItemController.swift */,
-				440668CB1D72A8FC00E582E1 /* ItemCell.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";

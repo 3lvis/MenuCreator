@@ -8,6 +8,7 @@ class ListController: UITableViewController {
 
         self.tableView.registerClass(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
         self.tableView.register(ItemCell)
+        self.tableView.cellLayoutMarginsFollowReadableWidth = false
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -34,6 +35,12 @@ class ListController: UITableViewController {
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
+    }
+
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.preservesSuperviewLayoutMargins = false
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

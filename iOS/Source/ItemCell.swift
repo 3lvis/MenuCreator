@@ -36,7 +36,11 @@ class ItemCell: UITableViewCell {
     var item: BreakfastItem? {
         didSet {
             self.titleLabel.text = item?.title
-            self.subtitleLabel.text = String(item!.price)
+            if let price = item?.price {
+                self.subtitleLabel.text = String(price)
+            } else {
+                self.subtitleLabel.text = ""
+            }
         }
     }
 
@@ -73,7 +77,6 @@ class ItemCell: UITableViewCell {
             let y = (containerHeight - accessoryHeight) / 2
             return CGRect(x: x, y: y, width: accessoryWidth, height: accessoryHeight)
         }
-        print(accessoryViewFrame)
         self.arrowView.frame = accessoryViewFrame
     }
 }
