@@ -3,6 +3,7 @@ import UIKit
 protocol ItemControllerDelegate: class {
     func itemController(itemController: ItemController, didRequestToUpdateItem: BreakfastItem)
     func itemController(itemController: ItemController, didRequestToCreateItem: BreakfastItem)
+    func itemController(itemController: ItemController, didRequestToDeleteItem: BreakfastItem)
     func itemControllerDidCancel(itemController: ItemController)
 }
 
@@ -84,6 +85,7 @@ class ItemController: UITableViewController {
             return cell
         case .others:
             let cell = tableView.dequeueReusableCellWithIdentifier(SwitchCell.reuseIdentifier, forIndexPath: indexPath) as! SwitchCell
+            cell.delegate = self
             cell.item = self.item
 
             return cell
@@ -111,6 +113,11 @@ class ItemController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectCurrentlySelectedRow()
+
+        let sectionType = ItemController.Section(rawValue: indexPath.section)!
+        if sectionType == .delete {
+            self.controllerDelegate?.itemController(self, didRequestToDeleteItem: self.item)
+        }
     }
 
     func save() {
@@ -123,5 +130,11 @@ class ItemController: UITableViewController {
 
     func cancel() {
         self.controllerDelegate?.itemControllerDidCancel(self)
+    }
+}
+
+extension ItemController: SwitchCellDelegate {
+    func switchCell(switchCell: SwitchCell, didUpdateSwitch isSeparator: Bool) {
+        self.item.isSeparator = isSeparator
     }
 }

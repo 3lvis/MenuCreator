@@ -24,9 +24,9 @@ struct BreakfastItem {
         }
     }
 
-    let title: String
-    let price: Double
-    let isSeparator: Bool
+    var title: String
+    var price: Double
+    var isSeparator: Bool
 
     static func generateData() -> [String : [BreakfastItem]] {
         var items = [String : [BreakfastItem]]()
@@ -78,5 +78,17 @@ struct BreakfastItem {
         let boundingRect = (self.title as NSString).boundingRectWithSize(CGSize(width: width, height: CGFloat.max), options: .UsesLineFragmentOrigin, attributes: attributes, context: nil)
 
         return boundingRect.height
+    }
+
+    static func objectsForSection(data: [String : [BreakfastItem]], section: Int) -> [BreakfastItem] {
+        let groupType = BreakfastItem.groupTypeForSection(section)
+
+        return data[groupType.rawValue] ?? [BreakfastItem]()
+    }
+
+    static func itemAtIndexPath(data: [String : [BreakfastItem]], indexPath: NSIndexPath) -> BreakfastItem {
+        let items = self.objectsForSection(data, section: indexPath.section)
+
+        return items[indexPath.row]
     }
 }
