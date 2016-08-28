@@ -42,7 +42,7 @@ struct BreakfastItem {
         }
         items[BreakfastItem.GroupType.platosListos.rawValue] = platosListos
 
-        let item = BreakfastItem(title: "", price: 0, isSeparator: false)
+        let item = BreakfastItem(title: "- TÉ ó MATE ó CHICHA/n - BROCOLY SALTADO/n -PAN", price: 7, isSeparator: false)
         items[BreakfastItem.GroupType.desayuno.rawValue] = [item]
 
         let sandwichsPath = NSBundle.mainBundle().pathForResource("sandwichs", ofType: "plist")!
@@ -55,7 +55,7 @@ struct BreakfastItem {
             let item = BreakfastItem(title: title, price: price, isSeparator: false)
             sandwichs.append(item)
         }
-        items[BreakfastItem.GroupType.desayuno.rawValue] = sandwichs
+        items[BreakfastItem.GroupType.sandwichs.rawValue] = sandwichs
 
         let jugosPath = NSBundle.mainBundle().pathForResource("jugos", ofType: "plist")!
         let importedJugos = NSArray(contentsOfFile: jugosPath) as? [[String : AnyObject]] ?? [[String : AnyObject]]()

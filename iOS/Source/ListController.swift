@@ -7,7 +7,7 @@ class ListController: UITableViewController {
         super.viewDidLoad()
 
         self.tableView.registerClass(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.register(ItemCell)
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -25,10 +25,9 @@ class ListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(ItemCell.reuseIdentifier, forIndexPath: indexPath) as! ItemCell
         let items = self.objectsForSection(indexPath.section)
-        let item = items[indexPath.row]
-        cell.textLabel?.text = item.title
+        cell.item = items[indexPath.row]
 
         return cell
     }

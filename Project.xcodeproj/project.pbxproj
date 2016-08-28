@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		14177FF21D7205C200898E84 /* desayuno-platos-listos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14177FF11D7205C200898E84 /* desayuno-platos-listos.plist */; };
 		143ACFFA1D71598600A99A82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 143ACFFC1D71598600A99A82 /* Localizable.strings */; };
-		14425E551C97078A00F0FAD1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14425E4D1C97078A00F0FAD1 /* Theme.swift */; };
-		14425E561C97078A00F0FAD1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14425E4D1C97078A00F0FAD1 /* Theme.swift */; };
 		146E27AA1BCD51F200959BBA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 146E27A11BCD51F200959BBA /* Images.xcassets */; };
 		146E27AC1BCD51F200959BBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146E27A41BCD51F200959BBA /* AppDelegate.swift */; };
 		146E27AD1BCD51F200959BBA /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146E27A51BCD51F200959BBA /* ListController.swift */; };
@@ -20,13 +18,14 @@
 		148DC3941D723F1F0061F043 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148DC3931D723F1F0061F043 /* SectionHeaderView.swift */; };
 		14F0217F1D715F8000D5D9B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F0217E1D715F8000D5D9B7 /* Item.swift */; };
 		14F021811D71602000D5D9B7 /* NewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F021801D71602000D5D9B7 /* NewItemController.swift */; };
+		440668CC1D72A8FC00E582E1 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440668CB1D72A8FC00E582E1 /* ItemCell.swift */; };
+		440668D11D72A99300E582E1 /* IdentifiableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440668D01D72A99300E582E1 /* IdentifiableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14177FF11D7205C200898E84 /* desayuno-platos-listos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "desayuno-platos-listos.plist"; sourceTree = "<group>"; };
 		143ACFFB1D71598600A99A82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		143ACFFD1D7159C900A99A82 /* es-PE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-PE"; path = "es-PE.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		14425E4D1C97078A00F0FAD1 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		146E27891BCD51C800959BBA /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146E27A11BCD51F200959BBA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		146E27A21BCD51F200959BBA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +39,8 @@
 		148DC3931D723F1F0061F043 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		14F0217E1D715F8000D5D9B7 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		14F021801D71602000D5D9B7 /* NewItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemController.swift; sourceTree = "<group>"; };
+		440668CB1D72A8FC00E582E1 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		440668D01D72A99300E582E1 /* IdentifiableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		141A6FD31BDE2DAB00CB6E82 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				440668CD1D72A98800E582E1 /* Extensions */,
 				14F0217D1D715F7700D5D9B7 /* Models */,
 				14425E4C1C97078A00F0FAD1 /* Extensions */,
 			);
@@ -72,7 +74,6 @@
 		14425E4C1C97078A00F0FAD1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				14425E4D1C97078A00F0FAD1 /* Theme.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -106,6 +107,7 @@
 				146E27A51BCD51F200959BBA /* ListController.swift */,
 				148DC3931D723F1F0061F043 /* SectionHeaderView.swift */,
 				14F021801D71602000D5D9B7 /* NewItemController.swift */,
+				440668CB1D72A8FC00E582E1 /* ItemCell.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -144,6 +146,14 @@
 				14F0217E1D715F8000D5D9B7 /* Item.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		440668CD1D72A98800E582E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				440668D01D72A99300E582E1 /* IdentifiableCell.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,8 +293,9 @@
 				14F0217F1D715F8000D5D9B7 /* Item.swift in Sources */,
 				148DC3941D723F1F0061F043 /* SectionHeaderView.swift in Sources */,
 				146E27AC1BCD51F200959BBA /* AppDelegate.swift in Sources */,
+				440668D11D72A99300E582E1 /* IdentifiableCell.swift in Sources */,
 				14F021811D71602000D5D9B7 /* NewItemController.swift in Sources */,
-				14425E551C97078A00F0FAD1 /* Theme.swift in Sources */,
+				440668CC1D72A8FC00E582E1 /* ItemCell.swift in Sources */,
 				146E27AD1BCD51F200959BBA /* ListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1483128E1B92C11500266943 /* Tests.swift in Sources */,
-				14425E561C97078A00F0FAD1 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
