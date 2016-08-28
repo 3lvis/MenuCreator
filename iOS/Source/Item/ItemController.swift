@@ -2,7 +2,7 @@ import UIKit
 
 protocol ItemControllerDelegate: class {
     func itemController(itemController: ItemController, didRequestToUpdateItem item: BreakfastItem)
-    func itemController(itemController: ItemController, didRequestToCreateItem item: BreakfastItem)
+    func itemController(itemController: ItemController, didRequestToCreateItem item: BreakfastItem, groupType: BreakfastItem.GroupType)
     func itemController(itemController: ItemController, didRequestToDeleteItem item: BreakfastItem)
     func itemControllerDidCancel(itemController: ItemController)
 }
@@ -38,9 +38,11 @@ class ItemController: UITableViewController {
         super.init(style: .Grouped)
     }
 
-    init() {
+    var groupType: BreakfastItem.GroupType?
+    init(groupType: BreakfastItem.GroupType) {
         self.item = BreakfastItem(title: "", price: 0, isSeparator: false)
         self.isNewItem = true
+        self.groupType = groupType
 
         super.init(style: .Grouped)
     }
@@ -124,7 +126,9 @@ class ItemController: UITableViewController {
 
     func save() {
         if self.isNewItem {
-            self.controllerDelegate?.itemController(self, didRequestToCreateItem: self.item)
+            if let groupType = self.groupType {
+                self.controllerDelegate?.itemController(self, didRequestToCreateItem: self.item, groupType: groupType)
+            }
         } else {
             self.controllerDelegate?.itemController(self, didRequestToUpdateItem: self.item)
         }

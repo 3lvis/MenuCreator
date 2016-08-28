@@ -7,6 +7,19 @@ struct BreakfastItem {
         case desayuno = "DESAYUNO"
         case sandwichs = "SANDWICHS"
         case jugos = "JUGOS"
+
+        func section() -> Int {
+            switch self {
+            case .platosListos:
+                return 0
+            case .desayuno:
+                return 1
+            case .sandwichs:
+                return 2
+            case .jugos:
+                return 3
+            }
+        }
     }
 
     static func groupTypeForSection(section: Int) -> BreakfastItem.GroupType {

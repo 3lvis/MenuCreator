@@ -67,7 +67,7 @@ class ItemsController: UITableViewController {
 
 extension ItemsController: SectionHeaderViewDelegate {
     func sectionHeaderView(sectionHeaderView: SectionHeaderView, didTappedAddButtonForGroupType groupType: BreakfastItem.GroupType) {
-        let controller = ItemController()
+        let controller = ItemController(groupType: groupType)
         controller.controllerDelegate = self
         let navigationController = UINavigationController(rootViewController: controller)
         navigationController.modalPresentationStyle = .FormSheet
@@ -90,9 +90,14 @@ extension ItemsController: ItemControllerDelegate {
         }
     }
 
-    func itemController(itemController: ItemController, didRequestToCreateItem item: BreakfastItem) {
+    func itemController(itemController: ItemController, didRequestToCreateItem item: BreakfastItem, groupType: BreakfastItem.GroupType) {
         self.dismissViewControllerAnimated(true) {
-            self.tableView.deselectCurrentlySelectedRow()
+            if var objects = self.data[groupType.rawValue] {
+                objects.append(item)
+                self.data[groupType.rawValue] = objects
+                let indexPath = NSIndexPath(forRow: objects.count - 1, inSection: groupType.section())
+                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
         }
     }
 
