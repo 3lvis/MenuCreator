@@ -22,6 +22,10 @@
 		148DC3921D7232530061F043 /* sandwichs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 148DC3901D7232530061F043 /* sandwichs.plist */; };
 		14F0217F1D715F8000D5D9B7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F0217E1D715F8000D5D9B7 /* Item.swift */; };
 		440668D11D72A99300E582E1 /* IdentifiableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440668D01D72A99300E582E1 /* IdentifiableCell.swift */; };
+		4428511F1D72FC2B0098AFE1 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4428511E1D72FC2B0098AFE1 /* TextViewCell.swift */; };
+		442851211D72FC310098AFE1 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442851201D72FC310098AFE1 /* TextFieldCell.swift */; };
+		442851231D72FC370098AFE1 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442851221D72FC370098AFE1 /* SwitchCell.swift */; };
+		442851251D72FC400098AFE1 /* DeleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442851241D72FC400098AFE1 /* DeleteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +49,10 @@
 		148DC3901D7232530061F043 /* sandwichs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sandwichs.plist; sourceTree = "<group>"; };
 		14F0217E1D715F8000D5D9B7 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		440668D01D72A99300E582E1 /* IdentifiableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableCell.swift; sourceTree = "<group>"; };
+		4428511E1D72FC2B0098AFE1 /* TextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
+		442851201D72FC310098AFE1 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		442851221D72FC370098AFE1 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
+		442851241D72FC400098AFE1 /* DeleteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				146C61181D72C99300553B39 /* ItemController.swift */,
+				4428511E1D72FC2B0098AFE1 /* TextViewCell.swift */,
+				442851201D72FC310098AFE1 /* TextFieldCell.swift */,
+				442851221D72FC370098AFE1 /* SwitchCell.swift */,
+				442851241D72FC400098AFE1 /* DeleteCell.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -314,11 +326,15 @@
 			files = (
 				14F0217F1D715F8000D5D9B7 /* Item.swift in Sources */,
 				146E27AC1BCD51F200959BBA /* AppDelegate.swift in Sources */,
+				442851211D72FC310098AFE1 /* TextFieldCell.swift in Sources */,
 				146C611F1D72C99300553B39 /* ItemsController.swift in Sources */,
 				146C611D1D72C99300553B39 /* ItemController.swift in Sources */,
+				442851231D72FC370098AFE1 /* SwitchCell.swift in Sources */,
+				442851251D72FC400098AFE1 /* DeleteCell.swift in Sources */,
 				146C61201D72C99300553B39 /* SectionHeaderView.swift in Sources */,
 				146C61241D72D1E000553B39 /* Swift+Sweet.swift in Sources */,
 				440668D11D72A99300E582E1 /* IdentifiableCell.swift in Sources */,
+				4428511F1D72FC2B0098AFE1 /* TextViewCell.swift in Sources */,
 				146C61221D72CCC400553B39 /* UITableView+Sweet.swift in Sources */,
 				146C611E1D72C99300553B39 /* ItemCell.swift in Sources */,
 			);

@@ -51,7 +51,11 @@ class ItemController: UITableViewController {
         self.title = self.isNewItem ? NSLocalizedString("Creating", comment: "") : NSLocalizedString("Editing", comment: "")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: #selector(save))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(cancel))
-        self.tableView.register(UITableViewCell)
+
+        self.tableView.register(TextViewCell)
+        self.tableView.register(TextFieldCell)
+        self.tableView.register(SwitchCell)
+        self.tableView.register(DeleteCell)
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -63,23 +67,34 @@ class ItemController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(UITableViewCell.reuseIdentifier, forIndexPath: indexPath)
-        cell.textLabel?.text = "Hi"
+        let sectionType = ItemController.Section(rawValue: indexPath.section)!
+        switch sectionType {
+        case .title:
+            let cell = tableView.dequeueReusableCellWithIdentifier(TextViewCell.reuseIdentifier, forIndexPath: indexPath) as! TextViewCell
+            cell.textLabel?.text = self.item.title
 
-        return cell
+            return cell
+        case .price:
+            let cell = tableView.dequeueReusableCellWithIdentifier(TextFieldCell.reuseIdentifier, forIndexPath: indexPath) as! TextFieldCell
+            cell.textLabel?.text = String(self.item.price) ?? ""
+
+            return cell
+        case .others:
+            let cell = tableView.dequeueReusableCellWithIdentifier(SwitchCell.reuseIdentifier, forIndexPath: indexPath) as! SwitchCell
+
+
+            return cell
+        case .delete:
+            let cell = tableView.dequeueReusableCellWithIdentifier(DeleteCell.reuseIdentifier, forIndexPath: indexPath) as! DeleteCell
+
+            return cell
+        }
     }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Title"
-        case 1:
-            return "Price"
-        case 2:
-            return "Others"
-        default:
-            return nil
-        }
+        let sectionType = ItemController.Section(rawValue: section)!
+
+        return sectionType.toString()
     }
 
     func save() {
