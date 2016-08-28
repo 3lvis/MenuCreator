@@ -11,7 +11,7 @@ class ListController: UITableViewController {
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return data.keys.count
+        return self.data.keys.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -21,7 +21,7 @@ class ListController: UITableViewController {
     func objectsForSection(section: Int) -> [BreakfastItem] {
         let groupType = BreakfastItem.groupTypeForSection(section)
 
-        return data[groupType.rawValue] ?? [BreakfastItem]()
+        return self.data[groupType.rawValue] ?? [BreakfastItem]()
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
