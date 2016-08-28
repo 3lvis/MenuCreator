@@ -66,12 +66,22 @@ class ItemsController: UITableViewController {
 
 extension ItemsController: SectionHeaderViewDelegate {
     func sectionHeaderView(sectionHeaderView: SectionHeaderView, didTappedAddButtonForGroupType groupType: BreakfastItem.GroupType) {
-        print("add: \(groupType.rawValue)")
+        let controller = ItemController()
+        controller.controllerDelegate = self
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.modalPresentationStyle = .FormSheet
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
 
 extension ItemsController: ItemControllerDelegate {
-    func itemController(itemController: ItemController, didRequestToSaveItem: BreakfastItem) {
+    func itemController(itemController: ItemController, didRequestToUpdateItem: BreakfastItem) {
+        self.dismissViewControllerAnimated(true) {
+            self.tableView.deselectCurrentlySelectedRow()
+        }
+    }
+
+    func itemController(itemController: ItemController, didRequestToCreateItem: BreakfastItem) {
         self.dismissViewControllerAnimated(true) {
             self.tableView.deselectCurrentlySelectedRow()
         }
