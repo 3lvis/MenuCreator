@@ -63,7 +63,7 @@ class ItemController: UITableViewController {
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return ItemController.Section.count
+        return self.isNewItem ? ItemController.Section.count - 1 : ItemController.Section.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
