@@ -5,6 +5,7 @@ class DeleteCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.textLabel?.textColor = UIColor.redColor()
+        self.textLabel?.font = UIFont.boldSystemFontOfSize(19)
         self.textLabel?.text = NSLocalizedString("Delete", comment: "")
         self.textLabel?.textAlignment = .Center
     }

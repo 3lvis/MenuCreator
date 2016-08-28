@@ -47,21 +47,21 @@ class SectionHeaderView: UITableViewHeaderFooterView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        let containerWidth = self.frame.width
-        let containerHeight =  self.frame.height
+        let parentWidth = self.frame.width
+        let parentHeight =  self.frame.height
 
         let horizontalMargin = CGFloat(20)
-        let width = containerWidth - (horizontalMargin * 2)
+        let width = parentWidth - (horizontalMargin * 2)
 
         var titleLabelFrame: CGRect {
-            return CGRect(x: horizontalMargin, y: 0, width: width, height: containerHeight)
+            return CGRect(x: horizontalMargin, y: 0, width: width, height: parentHeight)
         }
         self.titleLabel.frame = titleLabelFrame
 
         var addButtonFrame: CGRect {
             let size = CGFloat(20)
-            let x = containerWidth - (size * 2)
-            let y = (containerHeight - size) / 2
+            let x = parentWidth - (size * 2)
+            let y = (parentHeight - size) / 2
 
             return CGRect(x: x, y: y, width: size, height: size)
         }

@@ -12,6 +12,7 @@ class TextFieldCell: UITableViewCell {
     }
     lazy var textField: UITextField = {
         let view = UITextField()
+        view.font = UIFont.systemFontOfSize(19)
 
         return view
     }()
@@ -25,6 +26,17 @@ class TextFieldCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.textField.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        let parentWidth = self.frame.width
+        let parentHeight = self.frame.height
+
+        var textLabelFrame: CGRect {
+            let horizontalMargin = CGFloat(20)
+            let verticalMargin = CGFloat(20)
+            let width = parentWidth - horizontalMargin * 2
+            let height = parentHeight - verticalMargin * 2
+
+            return CGRect(x: horizontalMargin, y: verticalMargin, width: width, height: height)
+        }
+        self.textField.frame = textLabelFrame
     }
 }

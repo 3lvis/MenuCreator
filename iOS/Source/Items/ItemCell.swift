@@ -54,16 +54,16 @@ class ItemCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        let containerWidth = self.frame.width
-        let containerHeight =  self.frame.height
-        self.contentView.frame = CGRect(x: 0, y: 0, width: containerWidth, height: containerHeight)
+        let parentWidth = self.frame.width
+        let parentHeight =  self.frame.height
+        self.contentView.frame = CGRect(x: 0, y: 0, width: parentWidth, height: parentHeight)
 
         let horizontalMargin = CGFloat(20)
-        let boundsWidth = containerWidth - (horizontalMargin * 2)
+        let boundsWidth = parentWidth - (horizontalMargin * 2)
 
         var titleLabelFrame: CGRect {
             let width = boundsWidth * 0.85
-            return CGRect(x: horizontalMargin, y: 0, width: width, height: containerHeight)
+            return CGRect(x: horizontalMargin, y: 0, width: width, height: parentHeight)
         }
         self.titleLabel.frame = titleLabelFrame
 
@@ -72,7 +72,7 @@ class ItemCell: UITableViewCell {
         var detailLabelFrame: CGRect {
             let width = boundsWidth * 0.13 - accessoryWidth
             let x = self.titleLabel.frame.maxX
-            return CGRect(x: x, y: 0, width: width, height: containerHeight)
+            return CGRect(x: x, y: 0, width: width, height: parentHeight)
         }
         self.subtitleLabel.frame = detailLabelFrame
 
@@ -80,7 +80,7 @@ class ItemCell: UITableViewCell {
             let accessoryHeight = self.arrowView.image?.size.height ?? 0
             let rightMargin = CGFloat(15)
             let x = self.subtitleLabel.frame.maxX + rightMargin
-            let y = (containerHeight - accessoryHeight) / 2
+            let y = (parentHeight - accessoryHeight) / 2
             return CGRect(x: x, y: y, width: accessoryWidth, height: accessoryHeight)
         }
         self.arrowView.frame = accessoryViewFrame

@@ -109,6 +109,10 @@ class ItemController: UITableViewController {
         }
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectCurrentlySelectedRow()
+    }
+
     func save() {
         if self.isNewItem {
             self.controllerDelegate?.itemController(self, didRequestToCreateItem: self.item)

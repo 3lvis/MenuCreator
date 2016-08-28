@@ -13,6 +13,9 @@ class TextViewCell: UITableViewCell {
 
     lazy var textView: UITextView = {
         let view = UITextView()
+        view.font = UIFont.systemFontOfSize(19)
+        let margin = CGFloat(20)
+        view.textContainerInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
 
         return view
     }()
@@ -26,6 +29,8 @@ class TextViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.textView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        let parentWidth = self.frame.width
+        let parentHeight = self.frame.height
+        self.textView.frame = CGRect(x: 0, y: 0, width: parentWidth, height: parentHeight)
     }
 }
