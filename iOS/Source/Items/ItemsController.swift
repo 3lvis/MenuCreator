@@ -11,7 +11,6 @@ class ItemsController: UITableViewController {
         self.tableView.register(ItemCell)
         self.tableView.registerHeaderFooter(SectionHeaderView)
         self.tableView.cellLayoutMarginsFollowReadableWidth = false
-        self.tableView.rowHeight = ItemCell.baseHeight
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
