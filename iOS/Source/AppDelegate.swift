@@ -10,7 +10,7 @@ extension AppDelegate: UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         guard let window = self.window else { fatalError("Window not found") }
 
-        let controller = ListController()
+        let controller = ItemsController()
         controller.title = NSLocalizedString("Breakfast", comment: "")
         let navigationController = UINavigationController(rootViewController: controller)
         window.rootViewController = navigationController

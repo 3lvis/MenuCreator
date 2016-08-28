@@ -1,6 +1,6 @@
 import UIKit
 
-class ListController: UITableViewController {
+class ItemsController: UITableViewController {
     let data = BreakfastItem.generateData()
 
     override func viewDidLoad() {
@@ -8,6 +8,7 @@ class ListController: UITableViewController {
 
         self.tableView.registerClass(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
         self.tableView.register(ItemCell)
+        self.tableView.registerHeaderFooter(SectionHeaderView)
         self.tableView.cellLayoutMarginsFollowReadableWidth = false
     }
 
@@ -44,15 +45,19 @@ class ListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier("Header") as? SectionHeaderView
-        view?.groupType = BreakfastItem.groupTypeForSection(section)
-        view?.delegate = self
+        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier(SectionHeaderView.reuseIdentifier) as! SectionHeaderView
+        view.groupType = BreakfastItem.groupTypeForSection(section)
+        view.delegate = self
 
         return view
     }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 }
 
-extension ListController: SectionHeaderViewDelegate {
+extension ItemsController: SectionHeaderViewDelegate {
     func sectionHeaderView(sectionHeaderView: SectionHeaderView, didTappedAddButtonForGroupType groupType: BreakfastItem.GroupType) {
         print("add: \(groupType.rawValue)")
     }
